@@ -1,5 +1,5 @@
 let menuVisible = false;
-//Función que oculta o muestra el menu
+
 function mostrarOcultarMenu(){
     if(menuVisible){
         document.getElementById("nav").classList ="";
@@ -11,11 +11,11 @@ function mostrarOcultarMenu(){
 }
 
 function seleccionar(){
-    //oculto el menu una vez que selecciono una opcion
+
     document.getElementById("nav").classList = "";
     menuVisible = false;
 }
-//Funcion que aplica las animaciones de las habilidades
+
 function efectoHabilidades(){
     var skills = document.getElementById("skills");
     var distancia_skills = window.innerHeight - skills.getBoundingClientRect().top;
@@ -35,7 +35,54 @@ function efectoHabilidades(){
 }
 
 
-//detecto el scrolling para aplicar la animacion de la barra de habilidades
+
+
 window.onscroll = function(){
     efectoHabilidades();
 } 
+
+document.querySelector('.contacto button').addEventListener('click', function() {
+ 
+    const nombre = document.querySelector('.contacto input[placeholder="Tu nombre"]').value;
+    const telefono = document.querySelector('.contacto input[placeholder="Telefono"]').value;
+    const correo = document.querySelector('.contacto input[placeholder="Correo"]').value;
+    const tema = document.querySelector('.contacto input[placeholder="Tema"]').value;
+    const mensaje = document.querySelector('.contacto textarea').value;
+
+  
+    if(!nombre || !telefono || !correo || !tema || !mensaje) {
+        alert('Por favor complete todos los campos');
+        return;
+    }
+
+   
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailRegex.test(correo)) {
+        alert('Por favor ingrese un correo electrónico válido, Ej: TuCorreo@gmail.com');
+        return;
+    }
+
+    
+    const mailtoLink = `mailto:danielroland27@gmail.com?subject=${encodeURIComponent(tema)}&body=${encodeURIComponent(
+        `Nombre: ${nombre}\nTeléfono: ${telefono}\nCorreo: ${correo}\n\nMensaje:\n${mensaje}`
+    )}`;
+
+    const telefonoRegex = /^[0-9]{8}$/;
+    if(!telefonoRegex.test(telefono)) {
+        alert('Por favor ingrese un número de teléfono válido, Ej: 74548708');
+        return;
+    }
+    
+    window.location.href = mailtoLink;
+
+
+    document.querySelector('.contacto input[placeholder="Tu nombre"]').value = '';
+    document.querySelector('.contacto input[placeholder="Telefono"]').value = '';
+    document.querySelector('.contacto input[placeholder="Correo"]').value = '';
+    document.querySelector('.contacto input[placeholder="Tema"]').value = '';
+    document.querySelector('.contacto textarea').value = '';
+});
+
+document.getElementById('github-btn').addEventListener('click', function() {
+    window.location.href = 'https://github.com/dannyce27/AppOneCode.git';
+});

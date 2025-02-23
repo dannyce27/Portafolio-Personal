@@ -252,7 +252,7 @@ html{
     margin-bottom: 30px;
 }
 .skills .skill .progreso{
-    background-color: #1CB698;
+    background-color: #04745d;
     position: absolute;
     top: 0;
     left: 0;
@@ -262,7 +262,7 @@ html{
     position: absolute;
     height: 40px;
     width: 40px;
-    background-color: #1CB698;
+    background-color: #066451;
     border-radius: 50px;
     line-height: 40px;
     text-align: center;
@@ -359,6 +359,33 @@ html{
 @keyframes proyect {
     0%{width: 0%;}
     100%{width: 94%;}
+}
+
+.skills {
+    position: relative;
+    overflow: hidden;
+    animation: gradientBG 15s ease infinite;
+    background: linear-gradient(
+        45deg,
+        #1e2326,
+        #34e6c2,
+        #498b65,
+        #47ddbf,
+        #1e2326
+    );
+    background-size: 400% 400%;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .curriculum{
@@ -644,6 +671,38 @@ footer .arriba{
     border-radius: 50%;
     line-height: 50px;
     font-size: 18px;
+}
+
+.github-button {
+    position: relative;
+    padding: 12px 35px;
+    background-color: #1CB698;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.github-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #1CB698;
+}
+
+.github-button .overlay-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255,255,255,0.2);
+    transition: width 0.3s ease;
+}
+
+.github-button:hover .overlay-btn {
+    width: 100%;
 }
 
 @media screen and (max-width:980px){
